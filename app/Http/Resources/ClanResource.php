@@ -21,7 +21,7 @@ class ClanResource extends JsonResource
             'prezime'=>$this->resource->prezime,
             'datumRodjenja'=>$this->resource->datumRodjenja,
             'adresa'=>$this->resource->adresa,
-            'brojTelefona'=>$this->resource->brojTelefona
+            'brojTelefona'=>$this->resource->brojTelefona,
         ];
     }
 }

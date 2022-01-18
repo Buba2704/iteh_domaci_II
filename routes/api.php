@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\ClanController;
+use App\Http\Controllers\ClanPozajmicaController;
 use App\Http\Controllers\KnjigaController;
+use App\Http\Controllers\PozajmicaController;
 use App\Models\Knjiga;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +24,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/register',[AuthController::class,'register']);
+Route::post('/login',[AuthController::class,'login']);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/profile', function(Request $request) {
+        return auth()->user();
+    });
+
+    Route::resource('knjiga',KnjigaController::class);
+    Route::resource('clan',ClanController::class);
+    Route::resource('pozajmica',PozajmicaController::class);
+    Route::resource('clan.pozajmice',ClanPozajmicaController::class);
+
+    Route::post('/logout', [AuthController::class, 'logout']);
+});
