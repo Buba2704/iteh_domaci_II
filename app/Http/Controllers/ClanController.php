@@ -53,7 +53,7 @@ class ClanController extends Controller
         $clan = Clan::create([
             'ime' => $request->ime,
             'prezime' => $request->prezime,
-            'datumRodjenja' => $request->grad,
+            'datumRodjenja' => $request->datumRodjenja,
             'brojTelefona' => $request->brojTelefona,
             'adresa' => $request->adresa
         ]);
@@ -108,7 +108,7 @@ class ClanController extends Controller
 
              $clan->ime = $request->ime;
              $clan->prezime = $request->prezime;
-             $clan->datumRodjenja = $request->grad;
+             $clan->datumRodjenja = $request->datumRodjenja;
              $clan->brojTelefona = $request->brojTelefona;
              $clan->adresa = $request->adresa;
        $clan->save();

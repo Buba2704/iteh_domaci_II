@@ -32,10 +32,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return auth()->user();
     });
 
-    Route::resource('knjiga',KnjigaController::class);
-    Route::resource('clan',ClanController::class);
-    Route::resource('pozajmica',PozajmicaController::class);
-    Route::resource('clan.pozajmice',ClanPozajmicaController::class);
+    Route::resource('knjiga',KnjigaController::class)->only(['update','store','destroy']);
+    Route::resource('clan',ClanController::class)->only(['update','store','destroy']);
+    Route::resource('pozajmica',PozajmicaController::class)->only(['update','store','destroy']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });

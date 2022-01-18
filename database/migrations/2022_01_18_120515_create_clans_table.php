@@ -17,7 +17,7 @@ class CreateClansTable extends Migration
             $table->id();
             $table->string('ime');
             $table->string('prezime');
-            $table->date('datumR');
+            $table->date('datumR')->default(now());
             $table->string('adresa');
             $table->string('brojTelefona');
             $table->timestamps();
