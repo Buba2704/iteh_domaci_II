@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ClanController;
+use App\Http\Controllers\KnjigaController;
+use App\Http\Controllers\PozajmicaController;
+use App\Models\Knjiga;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "Pocetna strana";
 });
+
+Route::resource('knjige',KnjigaController::class)->only(['index']);
+Route::resource('clanovi',ClanController::class)->only(['index']);
+Route::resource('pozajmice',PozajmicaController::class)->only(['index']);
